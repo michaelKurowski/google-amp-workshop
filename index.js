@@ -10,4 +10,4 @@ app.get('/', function(req, res) {
 
 const server = http.createServer(app)
 
-server.listen(process.env.SERVER_PORT || 8443)
+server.listen(process.env.PORT || 8443)
