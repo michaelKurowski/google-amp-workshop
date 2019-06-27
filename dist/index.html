@@ -1,49 +1,224 @@
 <!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Rand0m</title>
+     <!-- jesli nie mam innej strony, to canonical powinien wskazywac na samego siebie -->
+    <link rel="canonical" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup">
 
-<htmlamplang=”en”>
+    <!-- -->
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Open-source framework for publishing content",
+        "datePublished": "2015-10-07T12:02:41Z",
+        "image": [
+          "logo.jpg"
+        ]
+      }
+    </script>
+    <script id="amp-access" type="application/json">
+        {
+            "authorization": "https://ampbyexample.com/oauth/status?_=RANDOM",
+            "noPingback": "true",
+            "login": {
+              "facebook-sign-in": "https://ampbyexample.com/oauth/login/facebook",
+              "google-sign-in": "https://ampbyexample.com/oauth/login/google",
+              "github-sign-in": "https://ampbyexample.com/oauth/login/github",
+              "sign-out": "https://ampbyexample.com/oauth/logout"
+            },
+            "authorizationFallbackResponse": {
+                "error": true,
+                "loggedIn": false
+            }
+        }
+    </script>
 
-<head>
 
-<metacharset=”utf-8″>
+    <!-- carousel -->
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-gfycat" src="https://cdn.ampproject.org/v0/amp-gfycat-0.1.js"></script>
+    <script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
+    <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
 
-<scriptasyncsrc=”https://cdn.ampproject.org/v0.js”></script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+        body {
+            background-color: '#b5b5b5';
+            padding-top: 50px;
+        }
+        .headerbar {
+            height: 50px;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            flex-direction: row;
+            justify-content: space-between;
+            z-index: 2147483645;
+            box-shadow: 0px 3px black;
+        }
+        amp-sidebar {
+            padding-right: 20px;
+            background-color: white;
+        }
+        #hamburger {
+            margin-right: 10px;
+        }
 
-<title>Hello, AMPs</title>
+        .login-button {
+            border-radius: 50px;
+            background-color: blueviolet;
+            border-style: none;
+            margin: 10px;
+            padding: 15px;
+            color: white;
+            font-weight: bold;
+        }
 
-<linkrel=”canonical”href=”http://example.ampproject.org/article-metadata.html” />
+        .close-lightbox-button {
+            border-radius: 10px;
+            background-color: blueviolet;
+        }
 
-<metaname=”viewport”content=”width=device-width,minimum-scale=1,initial-scale=1″>
+        .login-lightbox {
+            background-color: white;
+            width: 80%;
+            text-align: center;
+            border-top: 2px solid blueviolet;
+            padding: 20px;
+        }
 
-<scripttype=”application/ld+json”>
+        .login-lightbox-wrapper-horizontal {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
 
-{
+        .login-lightbox-wrapper-vertical {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+        }
 
-“@context”:”http://schema.org”,
+        amp-lightbox {
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 2147483646;
+        }
 
-“@type”:”NewsArticle”,
+        amp-sidebar {
+            padding: 0px;
+            padding-top: 50px;
+            width: 100%;
+        }
 
-“headline”:”Open-source framework for publishing content”,
+        .sidebar-list {
+            list-style-type: none;
+            padding: 5px;
+        }
 
-“datePublished”:”2015-10-07T12:02:41Z”,
-
-“image”: [
-
-“logo.jpg”
-
-]
-
-}
-
-</script>
-
-<styleamp-boilerplate>body{-webkit-animation:-amp-start 8ssteps(1,end) 0s1normalboth;-moz-animation:-amp-start 8ssteps(1,end) 0s1normalboth;-ms-animation:-amp-start 8ssteps(1,end) 0s1normalboth;animation:-amp-start 8ssteps(1,end) 0s1normalboth}@-webkit-keyframes-amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes-amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes-amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes-amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes-amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><styleamp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-
+        .sidebar-element {
+            border-width: 1px;
+            border-color: gray;
+            border-style: solid;
+            padding: 5px;
+            border-left-style: none;
+            border-right-style: none;
+            font-size: 20px;
+            margin: auto;
+        }
+    </style>
 </head>
+  <body>
+    <header class="headerbar">
+        <amp-img src="assets/hamburger.svg"
+            width="40"
+            height="40"
+            alt="hamburger"
+            on='tap:sidebar1.toggle'
+            id='hamburger'
+            role="button"
+            tabindex="0"></amp-img>
+        <div class="site-name">Rand0m</div>
+        <amp-img src="assets/profile.svg"
+            width="40"
+            height="40"
+            alt="hamburger"
+            on='tap:sidebar2.toggle'
+            id='hamburger'
+            role="button"
+            tabindex="0"></amp-img>
+    </header>
+    <h1>The most random website on the web</h1>
 
-<body>
+    <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
+        <ul class='sidebar-list'>
+            <li class='sidebar-element' >Sample</li>
+        </ul>
+    </amp-sidebar>
 
-<h1>Welcome to the mobile web</h1>
+    <amp-sidebar id="sidebar2" layout="nodisplay" side="right">
+        <ul class='sidebar-list'>
+            <li class='sidebar-element' amp-access="NOT loggedIn" amp-access-hide on='tap:sidebar2.toggle,login-lb'>Login</li>
+            <li class='sidebar-element' amp-access="loggedIn" amp-access-hide on='tap:sidebar2.toggle,amp-access.login-sign-out'>Logout</li>
+        </ul>
+    </amp-sidebar>
 
-</body>
+    <amp-lightbox id="login-lb" layout="nodisplay" amp-access="NOT loggedIn" amp-access-hide animate-in="fly-in-bottom" on="tap:login-lb.close">
+        <div class='login-lightbox-wrapper-vertical'>
+            <div class='login-lightbox-wrapper-horizontal'>
+                <div class='login-lightbox' on="tap:login-lb.open">
+                    <h3>Please login to view content</h3>
+                    <button class='login-button' on="tap:amp-access.login-google-sign-in,login-lb.close">Google Login</button>
+                    <button class='login-button' on="tap:amp-access.login-facebook-sign-in,login-lb.close">Facebook Login</button>
+                    <button class='login-button' on="tap:amp-access.login-github-sign-in,login-lb.close">GitHub Login</button>
+                </div>
+            </div>
+        </div>
+    </amp-lightbox>
 
+    <div amp-access="loggedIn" amp-access-hide>
+        <amp-carousel width="400"
+            height="300"
+            layout="responsive"
+            type="slides">
+                <amp-gfycat
+                data-gfyid="TautWhoppingCougar"
+                width="400"
+                height="300"
+                layout="responsive">
+                </amp-gfycat>
+                <amp-gfycat
+                data-gfyid="ashamedsoulfulbutterfly"
+                width="400"
+                height="300"
+                layout="responsive">
+                </amp-gfycat>
+                <amp-gfycat
+                data-gfyid="ajaradventurousherring"
+                width="400"
+                height="300"
+                layout="responsive">
+                </amp-gfycat>
+                <amp-gfycat
+                data-gfyid="tenderornerybrownbutterfly"
+                width="400"
+                height="300"
+                layout="responsive">
+                </amp-gfycat>
+        </amp-carousel>
+    </div>
+
+  </body>
 </html>
