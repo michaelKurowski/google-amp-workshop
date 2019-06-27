@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <title>Rand0m</title>
+    <title>ISS Tracker</title>
      <!-- jesli nie mam innej strony, to canonical powinien wskazywac na samego siebie -->
     <link rel="canonical" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup">
 
@@ -45,11 +45,12 @@
     <script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
     <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
     <script async custom-element="amp-live-list" src="https://cdn.ampproject.org/v0/amp-live-list-0.1.js"></script>
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
         body {
-            background-color: '#b5b5b5';
-            padding-top: 50px;
+            height: 100%;
+            background-color: #0c0116;
         }
         .headerbar {
             height: 50px;
@@ -64,10 +65,18 @@
             justify-content: space-between;
             z-index: 2147483645;
             box-shadow: 0px 3px black;
+            background-color: blueviolet;
         }
         amp-sidebar {
             padding-right: 20px;
             background-color: white;
+        }
+        .body {
+            background-color: #0c0116;
+            padding: 5px;
+            padding-top: 50px;
+            color: white;
+            height: 100%;
         }
         #hamburger {
             margin-right: 10px;
@@ -110,7 +119,7 @@
         }
 
         amp-lightbox {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -121,6 +130,7 @@
             padding: 0px;
             padding-top: 50px;
             width: 100%;
+            background-color: #300557;
         }
 
         #my-live-list {
@@ -130,6 +140,8 @@
             background-color: #300557;
             padding: 15px;
             color: white;
+            justify-content: space-around;
+            margin: 10px;
         }
 
         .sidebar-list {
@@ -151,102 +163,103 @@
         .live-list-items {
             display: flex;
             flex-direction: column;
+            justify-content: center;
         }
     </style>
 </head>
   <body>
-    <header class="headerbar">
-        <amp-img src="assets/hamburger.svg"
-            width="40"
-            height="40"
-            alt="hamburger"
-            on='tap:sidebar1.toggle'
-            id='hamburger'
-            role="button"
-            tabindex="0"></amp-img>
-        <div class="site-name">Rand0m</div>
-        <amp-img src="assets/profile.svg"
-            width="40"
-            height="40"
-            alt="hamburger"
-            on='tap:sidebar2.toggle'
-            id='hamburger'
-            role="button"
-            tabindex="0"></amp-img>
-    </header>
-    <h1>The most random website on the web</h1>
+        <header class="headerbar">
+                <amp-img src="assets/hamburger.svg"
+                    width="40"
+                    height="40"
+                    alt="hamburger"
+                    on='tap:sidebar1.toggle'
+                    id='hamburger'
+                    role="button"
+                    tabindex="0"></amp-img>
+                <div class="site-name">ISS Tracker</div>
+                <amp-img src="assets/profile.svg"
+                    width="40"
+                    height="40"
+                    alt="hamburger"
+                    on='tap:sidebar2.toggle'
+                    id='hamburger'
+                    role="button"
+                    tabindex="0"></amp-img>
+            </header>
+      <div class='body'>
 
-    <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
-        <ul class='sidebar-list'>
-            <li class='sidebar-element' >Sample</li>
-        </ul>
-    </amp-sidebar>
-
-    <amp-sidebar id="sidebar2" layout="nodisplay" side="right">
-        <ul class='sidebar-list'>
-            <li class='sidebar-element' amp-access="NOT loggedIn" amp-access-hide on='tap:sidebar2.toggle,login-lb'>Login</li>
-            <li class='sidebar-element' amp-access="loggedIn" amp-access-hide on='tap:sidebar2.toggle,amp-access.login-sign-out'>Logout</li>
-        </ul>
-    </amp-sidebar>
-
-    <amp-lightbox id="login-lb" layout="nodisplay" amp-access="NOT loggedIn" amp-access-hide animate-in="fly-in-bottom" on="tap:login-lb.close">
-        <div class='login-lightbox-wrapper-vertical'>
-            <div class='login-lightbox-wrapper-horizontal'>
-                <div class='login-lightbox' on="tap:login-lb.open">
-                    <h3>Please login to view content</h3>
-                    <button class='login-button' on="tap:amp-access.login-google-sign-in,login-lb.close">Google Login</button>
-                    <button class='login-button' on="tap:amp-access.login-facebook-sign-in,login-lb.close">Facebook Login</button>
-                    <button class='login-button' on="tap:amp-access.login-github-sign-in,login-lb.close">GitHub Login</button>
+                <h1>ISS Tracker</h1>
+            
+                <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
+                    <ul class='sidebar-list'>
+                        <li class='sidebar-element' >Sample</li>
+                    </ul>
+                </amp-sidebar>
+            
+                <amp-sidebar id="sidebar2" layout="nodisplay" side="right">
+                    <ul class='sidebar-list'>
+                        <li class='sidebar-element' amp-access="loggedIn" amp-access-hide on='tap:sidebar2.toggle'>Profile</li>
+                        <li class='sidebar-element' amp-access="NOT loggedIn" amp-access-hide on='tap:sidebar2.toggle,login-lb'>Login</li>
+                        <li class='sidebar-element' amp-access="loggedIn" amp-access-hide on='tap:sidebar2.toggle,amp-access.login-sign-out'>Logout</li>
+                    </ul>
+                </amp-sidebar>
+            
+                <amp-lightbox id="login-lb" layout="nodisplay" amp-access="NOT loggedIn" amp-access-hide animate-in="fly-in-bottom" on="tap:login-lb.close">
+                    <div class='login-lightbox-wrapper-vertical'>
+                        <div class='login-lightbox-wrapper-horizontal'>
+                            <div class='login-lightbox' on="tap:login-lb.open">
+                                <button class='login-button' on="tap:amp-access.login-google-sign-in,login-lb.close">Google Login</button>
+                                <button class='login-button' on="tap:amp-access.login-facebook-sign-in,login-lb.close">Facebook Login</button>
+                                <button class='login-button' on="tap:amp-access.login-github-sign-in,login-lb.close">GitHub Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </amp-lightbox>
+                <amp-live-list id="my-live-list" data-poll-interval="150" data-max-items-per-page="20">
+                    <button update on="tap:my-live-list.update">You have updates!</button>
+                    <div items class ='live-list-items'>
+                        <div id="latitude" data-sort-time="<%= timestamp - 10%>" data-update-time="<%= timestamp %>">
+                            Latitude: <%= latitude %></div>
+                        <div id="longitude" data-sort-time="<%= timestamp - 11%>" data-update-time ="<%= timestamp %>">
+                            Longitude: <%= longitude %></div>
+                    </div>
+                    <amp-img src="assets/iss.svg"
+                    width="60"
+                    height="60"
+                    role="button"
+                    ></amp-img>
+                </amp-live-list>
+                <amp-youtube
+                    data-videoid="ddFvjfvPnqk"
+                    layout="responsive"
+                    width="480" height="270"
+                    autoplay
+                ></amp-youtube>
+                <div>
+                    <amp-carousel width="400"
+                        height="300"
+                        layout="responsive"
+                        type="slides">
+                        <amp-img src="https://cdn.zmescience.com/wp-content/uploads/2019/04/Tracy_Caldwell_Dyson_in_Cupola_ISS.jpg"
+                            width="400"
+                            height="300"
+                            ></amp-img>  
+                        <amp-img src="https://cdn.mos.cms.futurecdn.net/Q8U3LcsBLsXX9mYksBx5eV.jpg"
+                            width="400"
+                            height="300"
+                            ></amp-img>
+                        <amp-img src="https://spacenews.com/wp-content/uploads/2018/10/Soyuz-09-capsule-docked-879x485.jpg"
+                            width="400"
+                            height="300"
+                            ></amp-img>
+                        <amp-img src="https://mk0spaceflightnoa02a.kinstacdn.com/wp-content/uploads/2019/04/D4hEPHkXoAEfSEA.jpg"
+                            width="400"
+                            height="300"
+                            ></amp-img>
+                    </amp-carousel>
                 </div>
-            </div>
-        </div>
-    </amp-lightbox>
+      </div>
 
-    <div amp-access="loggedIn" amp-access-hide>
-        <amp-carousel width="400"
-            height="300"
-            layout="responsive"
-            type="slides">
-                <amp-gfycat
-                data-gfyid="TautWhoppingCougar"
-                width="400"
-                height="300"
-                layout="responsive">
-                </amp-gfycat>
-                <amp-gfycat
-                data-gfyid="ashamedsoulfulbutterfly"
-                width="400"
-                height="300"
-                layout="responsive">
-                </amp-gfycat>
-                <amp-gfycat
-                data-gfyid="ajaradventurousherring"
-                width="400"
-                height="300"
-                layout="responsive">
-                </amp-gfycat>
-                <amp-gfycat
-                data-gfyid="tenderornerybrownbutterfly"
-                width="400"
-                height="300"
-                layout="responsive">
-                </amp-gfycat>
-        </amp-carousel>
-    </div>
-    
-    <amp-live-list id="my-live-list" data-poll-interval="150" data-max-items-per-page="20">
-            <button update on="tap:my-live-list.update">You have updates!</button>
-            <div items class ='live-list-items'>
-                <div id="latitude" data-sort-time="<%= timestamp - 10%>" data-update-time="<%= timestamp %>">
-                    Latitude: <%= latitude %></div>
-                <div id="longitude" data-sort-time="<%= timestamp - 11%>" data-update-time ="<%= timestamp %>">
-                    Longitude: <%= longitude %></div>
-            </div>
-            <amp-img src="assets/iss.svg"
-            width="60"
-            height="60"
-            role="button"
-            ></amp-img>
-          </amp-live-list>
   </body>
 </html>
