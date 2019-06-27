@@ -2,6 +2,7 @@ const fs = require('fs')
 const http = require('http')
 const express = require('express')
 const request = require('request');
+const path = require('path')
 
 const app = express()
 // app.use(express.static(process.env.SERVE_DIRECTORY || 'dist'))
@@ -13,7 +14,7 @@ app.get('/', function(req, res) {
       { name: 'Martini', drunkness: 5 },
       { name: 'Scotch', drunkness: 10 }
   ];
-  res.render(__dirname +'/dist/index.ejs', {...status.iss_position, timestamp: new Date().getTime()});
+  res.render(path.resolve(__dirname, '/dist/index.ejs'), {...status.iss_position, timestamp: new Date().getTime()});
 });
 
 const server = http.createServer(app)
