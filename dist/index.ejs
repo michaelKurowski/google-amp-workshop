@@ -187,11 +187,7 @@
                     role="button"
                     tabindex="0"></amp-img>
             </header>
-      <div class='body'>
-
-                <h1>ISS Tracker</h1>
-            
-                <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
+            <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
                     <ul class='sidebar-list'>
                         <li class='sidebar-element' >Sample</li>
                     </ul>
@@ -199,16 +195,19 @@
             
                 <amp-sidebar id="sidebar2" layout="nodisplay" side="right">
                     <ul class='sidebar-list'>
-                        <li class='sidebar-element' amp-access="loggedIn" amp-access-hide on='tap:sidebar2.toggle'>Profile</li>
-                        <li class='sidebar-element' amp-access="NOT loggedIn" amp-access-hide on='tap:sidebar2.toggle,login-lb'>Login</li>
-                        <li class='sidebar-element' amp-access="loggedIn" amp-access-hide on='tap:sidebar2.toggle,amp-access.login-sign-out'>Logout</li>
+                        <li role="button" tabindex="4" class='sidebar-element' amp-access="loggedIn" amp-access-hide on='tap:sidebar2.toggle'>Profile</li>
+                        <li role="button" tabindex="5" class='sidebar-element' amp-access="NOT loggedIn" amp-access-hide on='tap:sidebar2.toggle,login-lb'>Login</li>
+                        <li role="button" tabindex="6" class='sidebar-element' amp-access="loggedIn" amp-access-hide on='tap:sidebar2.toggle,amp-access.login-sign-out'>Logout</li>
                     </ul>
                 </amp-sidebar>
+      <div class='body'>
             
-                <amp-lightbox id="login-lb" layout="nodisplay" amp-access="NOT loggedIn" amp-access-hide animate-in="fly-in-bottom" on="tap:login-lb.close">
+
+            
+                <amp-lightbox tabindex="2" role="dialog" id="login-lb" layout="nodisplay" amp-access="NOT loggedIn" amp-access-hide animate-in="fly-in-bottom" on="tap:login-lb.close">
                     <div class='login-lightbox-wrapper-vertical'>
                         <div class='login-lightbox-wrapper-horizontal'>
-                            <div class='login-lightbox' on="tap:login-lb.open">
+                            <div class='login-lightbox' on="tap:login-lb.open"  role="dialog" tabindex="3">
                                 <button class='login-button' on="tap:amp-access.login-google-sign-in,login-lb.close">Google Login</button>
                                 <button class='login-button' on="tap:amp-access.login-facebook-sign-in,login-lb.close">Facebook Login</button>
                                 <button class='login-button' on="tap:amp-access.login-github-sign-in,login-lb.close">GitHub Login</button>
@@ -216,7 +215,7 @@
                         </div>
                     </div>
                 </amp-lightbox>
-                <amp-live-list id="my-live-list" data-poll-interval="150" data-max-items-per-page="20">
+                <amp-live-list id="my-live-list" data-poll-interval="15000" data-max-items-per-page="20">
                     <button update on="tap:my-live-list.update">You have updates!</button>
                     <div items class ='live-list-items'>
                         <div id="latitude" data-sort-time="<%= timestamp - 10%>" data-update-time="<%= timestamp %>">
@@ -225,6 +224,7 @@
                             Longitude: <%= longitude %></div>
                     </div>
                     <amp-img src="assets/iss.svg"
+                    id="iss" data-sort-time="0"
                     width="60"
                     height="60"
                     role="button"
