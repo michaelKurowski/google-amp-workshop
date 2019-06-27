@@ -223,9 +223,9 @@
     <amp-live-list id="my-live-list" data-poll-interval="150" data-max-items-per-page="20">
             <button update on="tap:my-live-list.update">You have updates!</button>
             <div items>
-                <div id="<%= timestamp + 'latitude' %>" data-sort-time="0" data-update-time="<%= timestamp %>">
+                <div id="latitude" data-sort-time="<%= timestamp - 10%>" data-update-time="<%= timestamp %>">
                     <%= latitude %></div>
-                <div id="<%= timestamp + 'longitude' %>" data-sort-time="1" data-update-time ="<%= timestamp %>">
+                <div id="longitude" data-sort-time="<%= timestamp - 11%>" data-update-time ="<%= timestamp %>">
                     <%= longitude %></div>
             </div>
           </amp-live-list>
