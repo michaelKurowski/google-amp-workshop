@@ -123,6 +123,15 @@
             width: 100%;
         }
 
+        #my-live-list {
+            display: flex;
+            flex-direction: row;
+            border-radius: 10px;
+            background-color: #300557;
+            padding: 15px;
+            color: white;
+        }
+
         .sidebar-list {
             list-style-type: none;
             padding: 5px;
@@ -137,6 +146,11 @@
             border-right-style: none;
             font-size: 20px;
             margin: auto;
+        }
+
+        .live-list-items {
+            display: flex;
+            flex-direction: column;
         }
     </style>
 </head>
@@ -222,12 +236,17 @@
     
     <amp-live-list id="my-live-list" data-poll-interval="150" data-max-items-per-page="20">
             <button update on="tap:my-live-list.update">You have updates!</button>
-            <div items>
+            <div items class ='live-list-items'>
                 <div id="latitude" data-sort-time="<%= timestamp - 10%>" data-update-time="<%= timestamp %>">
-                    <%= latitude %></div>
+                    Latitude: <%= latitude %></div>
                 <div id="longitude" data-sort-time="<%= timestamp - 11%>" data-update-time ="<%= timestamp %>">
-                    <%= longitude %></div>
+                    Longitude: <%= longitude %></div>
             </div>
+            <amp-img src="assets/iss.svg"
+            width="60"
+            height="60"
+            role="button"
+            ></amp-img>
           </amp-live-list>
   </body>
 </html>
