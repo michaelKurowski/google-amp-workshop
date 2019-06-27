@@ -44,7 +44,7 @@
     <script async custom-element="amp-gfycat" src="https://cdn.ampproject.org/v0/amp-gfycat-0.1.js"></script>
     <script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
     <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
-
+    <script async custom-element="amp-live-list" src="https://cdn.ampproject.org/v0/amp-live-list-0.1.js"></script>
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
         body {
@@ -219,6 +219,17 @@
                 </amp-gfycat>
         </amp-carousel>
     </div>
-
+    aa
+    <amp-live-list id="my-live-list" data-poll-interval="1500" data-max-items-per-page="20">
+            <button update on="tap:my-live-list.update">You have updates!</button>
+            <div items>
+                    <div id="time" data-sort-time="1234567" data-update-time="1561628502361" class="time">
+                            The time is: <time>9:41:42 AM</time>
+                            <div id="a" data-sort-time="1234567" data-update-time="1261628502361" class="time">
+                                    The time is: <time>9:41:42 AM</time>
+            </div>a
+            <!-- pagination is optional -->
+            <div pagination></div>
+          </amp-live-list>
   </body>
 </html>
