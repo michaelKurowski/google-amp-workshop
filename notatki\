@@ -1,0 +1,48 @@
+AMP
+
+Strony AMP ładują się już gdy wyskakują w wynikach google. Google.com ładuje je razem z wynikami.
+
+AMP ma zestaw predefiniowanych komponentów
+
+AMP validator - waliduje czy nasza strona jest walidnym AMPem
+
+żeby używać amp-script (tag z JSem) musisz uzyskać zgodę od Googla
+
+w RTV AGD tylko strona produktów (czy produktu, trzeba sprawdzić) jest AMP dla przykładu, by szybko się załadowała, a reszta już się dzieje później
+
+Google analitics jeśli nie jest skonfigurowane to będzie widziało usera na amp i usera na zwykłej stronie, jako 2 różnych userów
+AMP Tag test jest w stanie wyjryć czy istnieje takie issue
+
+
+PWA
+
+
+co musi miec by byc pwa : 
+////
+ma manifest
+
+ma servie worker
+
+ma prefer_related_applications na false w manifest
+
+meets a user engagement heuristic (engagement score w przegladrkach)
+\\\\
+
+service worker może być mieć restrykcje co do patha na którym działa
+
+
+
+servieWorker lifecycle
+parsed -> installed/waiting -> activated -> controls the page -> redundant
+
+workbox - libka do service workerów
+zarządza cachem, przyjmuje pluginy, ładuje tylko kod który jest rzeczywiście używany, helpery do debugowania na localhoście
+
+
+3 strategie Service workerów
+NetworkFirst - zawsze próbuje pobierać z neta i dopiero jak nie dostaje danych z neta, zasysa z cache
+CacheFirst - pobierz z cache, i zajrzyj do internetu jak failujesz
+StaleWhileRevalidate - sprawdza cache i internet na raz, ładuje zcachowaną wersję i jednocześnie z interneta aktualizuje cache ktore bedzie uzyte nastepnym razem
+
+
+Na potrzeby testowania, service workery działają po http po localhoście
