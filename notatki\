@@ -46,3 +46,7 @@ StaleWhileRevalidate - sprawdza cache i internet na raz, ładuje zcachowaną wer
 
 
 Na potrzeby testowania, service workery działają po http po localhoście
+
+Jeśli nie pokażesz notyfikacji w pushach z serwera, to przeglądarka zrobi to za Ciebie i wyświetli jakąś defaultową notyfikację
+
+Service worker działa tylko przez 30 sekund po otrzymania notyfikacji, gdy zakładka jest zamknięta
